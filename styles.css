@@ -1,0 +1,312 @@
+:root {
+    --dark-blue: #363f5f;
+    --green: #49aa26;
+    --light-green: #3dd705;
+
+
+} /* ta gravando a cor numa variavel, pra usar mais vezes, root é a raiz, ou seja, a tag HTML que ta envolvendo tudo */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 93.75%;
+}
+
+body {
+    background: #f0f2f5;
+    font-family: 'Poppins', sans-serif;
+} /*ta colocando no body, onde ta todo conteúdo, a letra que vai utilizar e definindo a cor do fundo
+  se não achar a poppins vai fazer a letra sans serif (que não tem a dobrinha) */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+} /* pra manter os titulos balanço e transações, mas sem aparecer, somente pra acessibilidade. Ta escondendo eles atras da caixa */
+
+.container {
+    width: min(90vw, 800px);
+    margin: auto;
+}/* width ta ajustando o tamanho do container de acordo com o tamanho da tela, vai pegar o que for menor (90vw ou 800 px) */
+
+h2{
+    margin-top: 3.2rem;
+    margin-bottom: 0.8rem;
+    color: var(--dark-blue);
+
+    font-weight: normal;
+
+} /* aqui ta colocando um padrão pra todos os h2, não só do balance */
+
+a {
+    color: var(--green);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--light-green); 
+} /* pra mudar a cor quando passa o mouse */
+
+button {
+    width: 100%;
+    height: 50px;
+
+    border: none;
+
+    color: white;
+    background: var(--green);
+
+    padding: 0;
+    border-radius: 0.25rem;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--light-green);
+}
+
+.button.new {
+    display: inline-block;
+    margin-bottom: .8rem;
+
+} /* se desse um espaço antes do segundo ponto, ia procurar um new no button, sem o espaço procura um que seja button e new 
+  quando é inline não permite aplicar essa margin, por isso usou inline block*/
+
+.button.cancel {
+    color: red;
+    border: 2px red solid;
+    border-radius: 0.25rem;
+
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0.6;
+}
+
+.button.cancel:hover{
+    opacity: 1;
+}
+
+header {
+    background: #2d4a22;
+    padding: 2rem 0 10rem;
+    text-align: center;
+} /*definindo a cor de fundo da header (que ta dentro do body) e o alinhamento */
+
+#logo {
+    color: #fff;
+    font-weight: 100;
+} /* definiu a cor da logo e o tamanho dela */
+
+#balance {
+    margin-top: -8rem;
+} /* aqui ta jogando pra cima toda a section balance */
+
+#balance h2 {
+    color: white;
+    margin-top: 0;
+} /* aqui ta tirando a margem somente dos h2 da section, que são os titulos balanço e transações */
+
+.card {
+   background: white;
+   padding: 1.5rem 2rem;
+   border-radius: 0.25rem;
+
+   margin-bottom: 2rem;
+   color: var(--dark-blue);
+
+} /* formatando os cartões, colocando branco no fundo, pading pra alinhar melhor, border radius pra arredondar as quinas, e margin pra espaçar eles */
+
+.card h3 {
+    font-weight: normal;
+    font-size: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+} /* h3 é o titulo dos cards, ta formatando eles 
+   display flex é pra deixar as coisas dentro da caixa uma do lado da outra*/
+
+.card p {
+    font-size: 2rem;
+    line-height: 3rem;
+
+    margin-top: 1rem;
+} /* p é o conteudo dos cards, ta formatando eles, line height é espaçamento caso tivesse mais linhas neles */
+
+.card.total {
+    background: var(--green);
+    color: white;
+} /* card com a cor diferente */
+
+#transaction {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
+#data-table {
+    width: 100%;
+    border-spacing: 0 0.5rem;
+    color: #969cb3;
+
+    
+} 
+
+/* pra tabela ocupar 100% da caixa dela, e espaçamento entre as linhas
+  overflow é pra fazer barra de rolagem no eixo x */
+
+table thead tr th:first-child, 
+table tbody tr td:first-child {
+    border-radius: 0.25rem 0 0 0.25rem;
+} /* ta pegando o primeiro filho th e o primeiro filho td da table, que é a primeira coluna, pra poder arredondar a quina só do lado esquerdo*/
+
+table thead tr th:last-child, 
+table tbody tr td:last-child {
+    border-radius: 0 0.25rem 0.25rem 0;
+} /* ta pegando o ultimo filho th e o primeiro filho td da table, que é a ultima coluna, pra poder arredondar a quina do lado direito também*/
+
+
+table th {
+    background: white;
+    font-weight: normal;
+    padding: 1rem 2 rem;
+    text-align: left;
+    
+} /* formatando o cabeçalho da tabela */
+
+table tbody tr {
+    opacity: 0.7;
+}
+
+table tbody tr:hover {
+    opacity: 1;
+} /* pra mudar o tom quando passa o mouse em cima */
+
+table tbody td {
+    background: white;
+    padding: 1rem 2 rem;
+} /* cor do fundo das linhas da tabela e espaçamento */
+
+td.description {
+    color: var(--dark-blue);
+} 
+
+td.income {
+    color: #12a454;
+} /* colocando verde nas entradas */
+
+td.expense {
+    color: #e92929;
+} /* colocando vermelho nas saidas */
+
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    z-index: 999;
+} /* pra colocar a tela preta transparente, o 0.7 é a transparencia
+     position fixed fixa ele na tela e libera outras funções como a top que em 0 joga ele la em cima
+     os 3 penúltimos itens são pra posicionar a caixa branca e não a preta
+      os 2 últimos itens é pra esconder a caixa preta, pra ela aparecer somente quando tiver a class active*/
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+} /* pra mostrar a caixa preta quando tiver a class active, vai fazer uma lógica com o botão nova transação pra colocar ou tirar a class active la do html */
+     
+.modal {
+    background: #f0f2f5;
+    padding: 2.4rem;
+
+    position: relative;
+    z-index: 1;
+} /*position pra destravar a função z index, pra colocar o form a frente de tudo */
+
+#form {
+    max-width: 500px;
+} /* o max que a caixa chega é 500px, isso é pra quando a tela aumentar a caixa não aumentar tanto junto, somente até 500px */
+
+#form h2 {
+    margin-top: 0;
+}
+
+input {
+    border: none;
+    border-radius: 0.2rem;
+
+    padding: 0.8rem;
+
+    width: 100%;
+}
+
+.input-group {
+    margin-top: 0.8rem;
+}
+
+small {
+    opacity: 0.4;
+}
+
+.input-group.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} /* flex é para destravar as outras funções */
+
+.input-group.actions .button,
+.input-group.actions button {
+    width: 48%;
+}
+
+footer {
+    text-align: center;
+    padding: 4rem 0 2rem;
+    color: var(--dark-blue);
+    
+
+    opacity: 0.6;
+} /* alinhando o rodapé no centro */
+
+/* resposive ====================== */
+@media (min-width: 800px) {
+    html {
+        font-size: 87.5%;
+    }
+
+    #balance {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    } /* ta colocando os cartoes do lado um do outro, o grid ta pra manipular mais
+        repeat ta dizendo pra repetir a 1 fração nos 3 cartoes, pode usar fração, %, px... e pode usar sem o repeat
+        ai vai dividir o tamanho de acordo com a fração 
+        gap é pra espaçar */
+} /* o media é pra quando a tela ficar menos de 800px, não vai colocar os cartões um do lado do outro
+    e sim embaixo. No caso de usar no cel, ou reduzir a tela msm */
+
