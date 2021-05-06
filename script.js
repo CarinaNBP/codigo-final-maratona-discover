@@ -122,8 +122,8 @@ const Utils = {
     formatAmount(value) {
         
 
-        value = Number(value) * 100 //pra tirar a virgula e ponto do valor caso a pessoa coloque
-        return value
+        value = value * 100 //pra tirar a virgula e ponto do valor caso a pessoa coloque
+        return Math.round(value) //pra arredondar
     },
 
     formatDate(date) {
